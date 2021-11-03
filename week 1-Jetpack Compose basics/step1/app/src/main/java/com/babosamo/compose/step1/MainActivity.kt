@@ -18,30 +18,33 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
             ComposeStep1Theme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
+                MyApp()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
-    Surface(color = MaterialTheme.colors.primary) {
-        Text(text = "Hello $name!",  modifier = Modifier.padding(24.dp))
+private fun MyApp() {
+    // A surface container using the 'background' color from the theme
+    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+        Greeting("Android")
     }
 }
 
-@Preview(showBackground = true, name = "hello preview text")
+@Composable
+fun Greeting(name: String) {
+    Surface(color = MaterialTheme.colors.primary) {
+        Text(text = "Hello $name!", modifier = Modifier.padding(24.dp))
+    }
+}
+
+@Preview(showBackground = true, name = "MyApp")
 @Composable
 fun DefaultPreview() {
     ComposeStep1Theme {
-        Greeting("preview Android")
+        MyApp()
     }
 }
