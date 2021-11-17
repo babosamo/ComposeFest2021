@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -34,6 +36,20 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+@Preview
+@Composable
+fun DefaultPreView() {
+    TopAppBar(
+        title = {
+            Text(text = "Page title", maxLines = 2)
+        },
+        navigationIcon = {
+            Icon(Icons.Filled.Email, "")
+        }
+    )
+}
+
 
 @Composable
 fun PhotographerCard(modifier: Modifier = Modifier) {
