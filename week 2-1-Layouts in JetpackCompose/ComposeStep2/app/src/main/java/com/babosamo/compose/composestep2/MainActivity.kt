@@ -42,10 +42,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    ScrollingList()
+//                    ScrollingList()
 //                    SimpleList()
 //                    PhotographerCard()
-//                    LayoutsCodelab()
+                    LayoutsCodelab()
                 }
             }
         }
@@ -68,11 +68,7 @@ fun LayoutsCodelab() {
             )
         }
     ) { innerPadding ->
-        BodyContent(
-            Modifier
-                .padding(innerPadding)
-                .padding(8.dp)
-        )
+        BodyContentChip(Modifier.padding(innerPadding))
     }
 }
 
@@ -396,13 +392,18 @@ val topics = listOf(
 
 @Composable
 fun BodyContentChip(modifier: Modifier = Modifier) {
-    Row(modifier = modifier.horizontalScroll(rememberScrollState())) {
-        StaggeredGrid(modifier = modifier, rows = 5) {
-            for (topic in topics) {
-                Chip(modifier = Modifier.padding(8.dp), text = topic)
+    Row(modifier = modifier
+        .background(color = Color.LightGray)
+        .padding(16.dp)
+        .size(200.dp)
+        .horizontalScroll(rememberScrollState()),
+        content = {
+            StaggeredGrid {
+                for (topic in topics) {
+                    Chip(modifier = Modifier.padding(8.dp), text = topic)
+                }
             }
-        }
-    }
+        })
 }
 
 @Preview
